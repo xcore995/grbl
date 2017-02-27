@@ -1,10 +1,6 @@
-![GitHub Logo](/doc/media/Grbl Logo 250px.png)
-***
+![GitHub Logo](/doc/media/Grbl Logo 250px.png) 
+###for laseraxe cncc 2417
 
-### Grbl v1.1 has been released [here](https://github.com/gnea/grbl/releases)!
-### Notice: This site will be phased out and moved to the new one!
-
-***
 
 Grbl is a no-compromise, high performance, low cost alternative to parallel-port-based motion control for CNC milling. It will run on a vanilla Arduino (Duemillanove/Uno) as long as it sports an Atmega 328. 
 
