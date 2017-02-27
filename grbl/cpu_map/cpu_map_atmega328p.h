@@ -36,19 +36,20 @@
 // Define step pulse output pins. NOTE: All step bit pins must be on the same port.
 #define STEP_DDR        DDRD
 #define STEP_PORT       PORTD
-#define X_STEP_BIT      2  // Uno Digital Pin 2
-#define Y_STEP_BIT      3  // Uno Digital Pin 3
-#define Z_STEP_BIT      4  // Uno Digital Pin 4
+#define X_STEP_BIT      3  // Uno Digital Pin 2 #xcore 3-x
+#define Y_STEP_BIT      5  // Uno Digital Pin 3 #xcore 5-y
+#define Z_STEP_BIT      7  // Uno Digital Pin 4 #xcore 7-z
 #define STEP_MASK       ((1<<X_STEP_BIT)|(1<<Y_STEP_BIT)|(1<<Z_STEP_BIT)) // All step bits
+//#define STEP_MASK       ((8)|(1)|(32)) // All step bits
 
 // Define step direction output pins. NOTE: All direction pins must be on the same port.
 #define DIRECTION_DDR     DDRD
 #define DIRECTION_PORT    PORTD
-#define X_DIRECTION_BIT   5  // Uno Digital Pin 5
-#define Y_DIRECTION_BIT   6  // Uno Digital Pin 6
-#define Z_DIRECTION_BIT   7  // Uno Digital Pin 7
+#define X_DIRECTION_BIT   2  // Uno Digital Pin 5 #xcore dirX-2
+#define Y_DIRECTION_BIT   4  // Uno Digital Pin 6 #xcore dirY-4
+#define Z_DIRECTION_BIT   6  // Uno Digital Pin 7 #xcore dirZ-
+//backup #define DIRECTION_MASK    ((1<<X_DIRECTION_BIT)|(1<<Y_DIRECTION_BIT)|(1<<Z_DIRECTION_BIT)) // All direction bits
 #define DIRECTION_MASK    ((1<<X_DIRECTION_BIT)|(1<<Y_DIRECTION_BIT)|(1<<Z_DIRECTION_BIT)) // All direction bits
-
 // Define stepper driver enable/disable output pin.
 #define STEPPERS_DISABLE_DDR    DDRB
 #define STEPPERS_DISABLE_PORT   PORTB
@@ -79,17 +80,17 @@
 #ifdef VARIABLE_SPINDLE 
   #ifdef USE_SPINDLE_DIR_AS_ENABLE_PIN
     // If enabled, spindle direction pin now used as spindle enable, while PWM remains on D11.
-    #define SPINDLE_ENABLE_BIT    5  // Uno Digital Pin 13 (NOTE: D13 can't be pulled-high input due to LED.)
+    #define SPINDLE_ENABLE_BIT    13  // Uno Digital Pin 13 (NOTE: D13 can't be pulled-high input due to LED.)
   #else
-    #define SPINDLE_ENABLE_BIT    3  // Uno Digital Pin 11
+    #define SPINDLE_ENABLE_BIT    13  // Uno Digital Pin 11
   #endif
 #else
-  #define SPINDLE_ENABLE_BIT    4  // Uno Digital Pin 12
+  #define SPINDLE_ENABLE_BIT    13  // Uno Digital Pin 12
 #endif
 #ifndef USE_SPINDLE_DIR_AS_ENABLE_PIN
   #define SPINDLE_DIRECTION_DDR   DDRB
   #define SPINDLE_DIRECTION_PORT  PORTB
-  #define SPINDLE_DIRECTION_BIT   5  // Uno Digital Pin 13 (NOTE: D13 can't be pulled-high input due to LED.)
+  #define SPINDLE_DIRECTION_BIT   13  // Uno Digital Pin 13 (NOTE: D13 can't be pulled-high input due to LED.)
 #endif
   
 // Define flood and mist coolant enable output pins.
